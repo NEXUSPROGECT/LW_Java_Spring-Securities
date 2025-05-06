@@ -12,12 +12,6 @@ import org.springframework.web.bind.annotation.*;
 public class TikerController {
     private final TikerService tikerService;
 
-    @GetMapping("/tiker/{id}")
-    public String tikerInfo(@PathVariable Long id, Model model) {
-        model.addAttribute("tiker", tikerService.getTikerById(id));
-        return "tiker-info";
-    }
-
     @GetMapping("/tikers")
     public String tikers(@RequestParam(name = "nameTiker", required = false) String nameTiker, Model model) {
         model.addAttribute("tikers", tikerService.listTikers(nameTiker));
